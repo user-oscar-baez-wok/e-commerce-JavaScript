@@ -143,7 +143,6 @@ function renderCartItem(item) {
   const closeIcon = cartProduct.querySelector(".borrarProductCart");
   closeIcon.addEventListener("click", () => {
     const productId = item.id;
-    console.log("Clicked on product ID:", productId);
     removeProductFromCart(productId);
   });
 }
@@ -158,7 +157,8 @@ co.addEventListener("click",()=>{
   updateCartTotal(0); 
   updateCartCount(0); 
   localStorage.removeItem("cartItems");
-  alert("¡Gracias por tu compra!");
+  // alert("¡Gracias por tu compra!");
+  console.log("¡Gracias por tu compra!);
 })
 /** --------------> */
 function updateCartItemQuantity(productId, newQuantity) {
@@ -204,22 +204,14 @@ function addProductToCart(id_product, t_product, im_product, p_product) {
   }
 
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
   loadCartItems();
   updateCartCount();
 }
 /** --------------> */
 function removeProductFromCart(productId) {
-  console.log("Removing product with ID:", productId);
-
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-  console.log("Before removal:", cartItems);
-
   cartItems = cartItems.filter((item) => item.id !== productId);
-  console.log("After removal:", cartItems);
-
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
   loadCartItems();
   updateCartCount();
 }
