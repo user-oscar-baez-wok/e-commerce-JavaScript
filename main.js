@@ -157,8 +157,7 @@ co.addEventListener("click",()=>{
   updateCartTotal(0); 
   updateCartCount(0); 
   localStorage.removeItem("cartItems");
-  // alert("¡Gracias por tu compra!");
-  console.log("¡Gracias por tu compra!);
+  alert("¡Gracias por tu compra!");
 })
 /** --------------> */
 function updateCartItemQuantity(productId, newQuantity) {
